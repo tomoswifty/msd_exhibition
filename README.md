@@ -32,6 +32,16 @@ sudo nmcli radio wifi off
 sudo nmcli radio wifi # enable/disableが確認できます。
 ```
 4. install vnc
+```
+sudo apt update
+sudo apt install -y tigervnc-common tigervnc-standalone-server tigervnc-scraping-server
+# パスワードの設定
+vncpasswd
+
+# 起動
+x0vncserver -display :0 -passwordfile ~/.vnc/passwd
+# 別途、X環境を作る場合は、vncserver :1 などにする
+```
 
 ## usage
 connect RPLiDAR S1 to USB port and add authentifications 
