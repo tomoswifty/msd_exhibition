@@ -6,17 +6,32 @@
 mkdir -p catkin_ws/src
 cd !$
 git clone https://github.com/tomoswifty/msd_exhibition.git
-cd 
-cd robotis_tools/
+cd ~/catkin_ws/src/msd_exhibition/install_requires
+sudo chmodv +x dep.sh repo.sh
+./repo.sh
+```
+
+2. install ros
+```
+cd ~/robotis_tools/
 sudo chmodv +x install_ros_melodic.sh
 ./install_ros_melodic.sh
-```
-2. install ros-cartographer package
-```
-cd catkin_ws/src/msd_exhibition/install_requires
-sudo chmodv +x dep.sh
+cd ~/catkin_ws/src/msd_exhibition/install_requires
 ./depc.sh
 ```
+
+3. connect wi-fi by cli
+```
+# アクセスポイントの表示
+nmcli device wifi
+sudo nmcli device wifi rescan # 再スキャン
+# 接続
+sudo nmcli device wifi connect [SSID | BSSID] password [password]
+# 切断
+sudo nmcli radio wifi off
+sudo nmcli radio wifi # enable/disableが確認できます。
+```
+4. install vnc
 
 ## usage
 connect RPLiDAR S1 to USB port and add authentifications 
