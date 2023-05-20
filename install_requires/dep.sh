@@ -12,6 +12,6 @@ sudo apt-get install -y ros-melodic-dwa-local-planner
 sudo apt-get install -y ros-melodic-robot-localization
 
 # ds4drv 
-sudo pip install ds4drv
+sudo pip install -y ds4drv
 # ros joy_node
-sudo apt install ros-melodic-joy
+sudo apt install -y ros-melodic-joy

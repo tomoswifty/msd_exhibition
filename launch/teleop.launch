@@ -6,7 +6,7 @@
     
     <arg name="speed" default="0.01" /> 
     <arg name="joydev" default="/dev/input/js0" />
-    <arg name="config_filepath" default="$(find msd_ros_mk1)/config/msd_ps4.config.yaml" />
+    <arg name="config_filepath" default="$(find msd_exhibition)/config/msd_ps4.config.yaml" />
 
 
     <group if="$(eval controller == 'key')">
