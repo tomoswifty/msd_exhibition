@@ -10,3 +10,8 @@ sudo apt-get install -y ros-melodic-move-base
 sudo apt-get install -y ros-melodic-gmapping ros-melodic-amcl ros-melodic-map-server
 sudo apt-get install -y ros-melodic-dwa-local-planner
 sudo apt-get install -y ros-melodic-robot-localization
+
+# ds4drv 
+sudo pip install ds4drv
+# ros joy_node
+sudo apt install ros-noetic-joy
