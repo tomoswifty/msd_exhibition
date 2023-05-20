@@ -14,4 +14,4 @@ sudo apt-get install -y ros-melodic-robot-localization
 # ds4drv 
 sudo pip install ds4drv
 # ros joy_node
-sudo apt install ros-noetic-joy
+sudo apt install ros-melodic-joy
