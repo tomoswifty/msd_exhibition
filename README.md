@@ -1,6 +1,6 @@
 # MSD_cartographer navigation for Exhibitions
 
-## install 
+## INSTALL & SETUP
 1. create ros workspase and install ros-melodic
 ```
 mkdir -p catkin_ws/src
@@ -20,18 +20,7 @@ cd ~/catkin_ws/src/msd_exhibition/install_requires
 ./depc.sh
 ```
 
-3. connect wi-fi by cli
-```
-# アクセスポイントの表示
-nmcli device wifi
-sudo nmcli device wifi rescan # 再スキャン
-# 接続
-sudo nmcli device wifi connect [SSID | BSSID] password [password]
-# 切断
-sudo nmcli radio wifi off
-sudo nmcli radio wifi # enable/disableが確認できます。
-```
-4. install vnc
+3. install vnc
 ```
 sudo apt update
 sudo apt install -y tigervnc-common tigervnc-standalone-server tigervnc-scraping-server
@@ -43,10 +32,27 @@ x0vncserver -display :0 -passwordfile ~/.vnc/passwd
 # 別途、X環境を作る場合は、vncserver :1 などにする
 ```
 
-## usage
-connect RPLiDAR S1 to USB port and add authentifications 
-`sudo chmod /dev/ttyUSB0`
+## USAGE
+1. connect wi-fi by cli
+```
+# アクセスポイントの表示
+nmcli device wifi
+sudo nmcli device wifi rescan # 再スキャン
+# 接続
+sudo nmcli device wifi connect [SSID | BSSID] password [password]
+# 切断
+sudo nmcli radio wifi off
+sudo nmcli radio wifi # enable/disableが確認できます。
+```
 
+2. access via vnc
+```
+# 起動
+x0vncserver -display :0 -passwordfile ~/.vnc/passwd
+```
+
+Connect RPLiDAR S1 to USB port and add authentifications 
+`sudo chmod /dev/ttyUSB0`
 Next connect to esp32-s3 and add authentifications 
 `sudo chmod /dev/ttyUSB1`
 
