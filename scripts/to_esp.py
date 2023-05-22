@@ -19,7 +19,7 @@ def main():
     rospy.init_node('main', anonymous=True)
     rospy.Subscriber("cmd_vel", Twist, cmdvel_to_esp_callback)
 
-    ser = serial.Serial('/dev/ttyUSB1', 115200, timeout=None)
+    ser = serial.Serial('/dev/esp32s3', 115200, timeout=None) # chenge udev rules ftom "ttyUSB1"
     
     while not rospy.is_shutdown():
         ser.write(b'Jetson:')
