@@ -16,7 +16,7 @@ def cmdvel_to_esp_callback(vel):
     gAngular_z = round(vel.angular.z, f)
 
 def main():
-    # rospy.init_node('main', anonymous=True)
+    rospy.init_node('main', anonymous=True)
     rospy.Subscriber("cmd_vel", Twist, cmdvel_to_esp_callback)
 
     ser = serial.Serial('/dev/ttyUSB1', 115200, timeout=None)
@@ -26,7 +26,7 @@ def main():
         ser.write(str(gLinear_x).encode())
         ser.write(b',')
         ser.write(str(gAngular_z).encode())
-        ser.write(b'\r\n')
+        ser.write(b'\n')
 
 if __name__ == '__main__':
     try:

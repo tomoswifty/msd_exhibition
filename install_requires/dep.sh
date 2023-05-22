@@ -15,3 +15,6 @@ sudo apt-get install -y ros-melodic-robot-localization
 sudo pip install -y ds4drv
 # ros joy_node
 sudo apt install -y ros-melodic-joy
+
+# serial
+pip3 install pyserial
