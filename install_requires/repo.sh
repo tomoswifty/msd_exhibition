@@ -9,8 +9,9 @@ git clone https://github.com/ROBOTIS-GIT/robotis_tools.git
 
 cd ~/catkin_ws/src
 git clone https://github.com/Andrew-rw/gbot_core.git
-git clone https://github.com/tomoswifty/cartgrapher_navigation.git
 git clone https://github.com/Slamtec/rplidar_ros.git
+
+git clone https://github.com/tomoswifty/cartgrapher_navigation.git
 git clone https://github.com/tomoswifty/ira_laser_tools.git
 
 # pip3
