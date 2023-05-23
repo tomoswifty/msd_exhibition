@@ -19,9 +19,11 @@ def cmdvel_to_esp_callback(vel):
 
 def joy_button_callback():
     if (joy_msg.buttons[1] == 1):
-        os.system('roslaunch ')
+        os.system('roslaunch msd_exhibition msd_nav.launch')
+        rospy.loginfo("X button pushed. mad_nav launch")
     elif (joy_msg.buttons[2] == 1):
         os.system('^C')
+        rospy.loginfo('O button pushed. msd_nav shutdown')
 
 def main():
     rospy.init_node('main', anonymous=True)
@@ -36,6 +38,8 @@ def main():
         ser.write(b',')
         ser.write(str(gAngular_z).encode())
         ser.write(b'\n')
+        rospy.loginfo('Speed = %s m/s, Angular = %s m/s', gLinear_x, gAngular_z)
+
 
 if __name__ == '__main__':
     try:
