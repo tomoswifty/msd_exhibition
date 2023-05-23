@@ -13,6 +13,7 @@ sudo apt-get install -y ros-melodic-robot-localization
 
 # ds4drv 
 sudo pip install -y ds4drv
+sudo apt install -y ros-melodic-teleop-*
 # ros joy_node
 sudo apt install -y ros-melodic-joy
 
