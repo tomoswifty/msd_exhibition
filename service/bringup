@@ -1,0 +1,14 @@
+[Unit]
+Description=msd700 launch
+After=networking.service roscore.service
+Requires=networking.service roscore.service≈
+
+[Service]
+User=msd700
+Type=simple
+ExecStart=/usr/bin/screen -S msd_bringup -ADm bash -l -c 'sleep 20; roslaunch msd_exhibition bringup_teleop.launch'
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
