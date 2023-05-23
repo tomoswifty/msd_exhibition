@@ -2,7 +2,8 @@
 <launch>
   <!--node pkg="tf" type="static_transform_publisher" name="laser_frame_connect" args="0.3 0 0.05 0 0 0 base_link laser 10" /-->
 
-  <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/>
+  <!-- <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/> -->
+  
   <!-- Load robot description and start state publisher-->
   <param name="robot_description" textfile="$(find cartgrapher_navigation)/urdf/robot_model.urdf" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

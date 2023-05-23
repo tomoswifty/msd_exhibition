@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/>
   
   <!--joy key プロポ の切り替え-->
   <arg name="controller" default="joy"/> 
@@ -9,7 +8,6 @@
     <arg name="speed" default="0.01" /> 
     <arg name="joydev" default="/dev/input/js0" />
     <arg name="config_filepath" default="$(find msd_exhibition)/config/msd_ps4.config.yaml" />
-
 
     <group if="$(eval controller == 'key')">
       <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="msd_opelate_key" >  <!-- output="screen" -->
@@ -27,4 +25,6 @@
 
       </node>
     </group>
+
+  <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/>
 </launch>

@@ -7,6 +7,9 @@ axis_angular:
 scale_angular:
   yaw: 0.78         # 90[degree] = 0.78[radius] 180[degree] = 1.57[radius]
 enable_button: 4    # L1 button
-enable_turbo_button: 8
+enable_turbo_button: 8 # share button
+enable_button: 1
+enable_button: 2
+
 
 # file does not exist [/home/msd700/catkin_ws/src/msd_exhibition/config/msd_ps4.config.yaml]
