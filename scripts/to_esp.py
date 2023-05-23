@@ -19,10 +19,10 @@ def cmdvel_to_esp_callback(vel):
 
 def joy_button_callback():
     if (joy_msg.buttons[1] == 1):
-        os.system('roslaunch msd_exhibition msd_nav.launch')
+        # os.system('roslaunch msd_exhibition msd_nav.launch')
         rospy.loginfo("X button pushed. mad_nav launch")
     elif (joy_msg.buttons[2] == 1):
-        os.system('^C')
+        # os.system('^C')
         rospy.loginfo('O button pushed. msd_nav shutdown')
 
 def main():
