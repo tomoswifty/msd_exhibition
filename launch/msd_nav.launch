@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+  <!--node pkg="tf" type="static_transform_publisher" name="laser_frame_connect" args="0.3 0 0.05 0 0 0 base_link laser 10" /-->
+
   <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/>
   <!-- Load robot description and start state publisher-->
   <param name="robot_description" textfile="$(find cartgrapher_navigation)/urdf/robot_model.urdf" />
@@ -7,13 +9,56 @@
       
       <!-- Start RPLIDAR sensor node which provides LaserScan data  -->
   <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" output="screen">
-      <param name="serial_port" type="string" value="/dev/ttyUSB0"/>
+      <param name="serial_port" type="string" value="/dev/RPLIDARS1"/>
       <!--<param name="serial_baudrate" type="int" value="115200"/>-->
       <param name="serial_baudrate"     type="int"    value="256000"/>
       <param name="frame_id" type="string" value="laser"/>
-      <param name="inverted" type="bool" value="false"/>
+      <param name="inverted" type="bool" value="true"/>
       <param name="angle_compensate" type="bool" value="true"/>
+      <remap from="scan" to="/scan_raw" />
   </node>
+
+  <node pkg="ira_laser_tools" name="laserscan_multi_merger1" type="laserscan_multi_merger" output="screen">
+	<param name="destination_frame" value="laser"/>
+	<param name="cloud_destination_topic" value="/pointcloud1"/>
+	<param name="scan_destination_topic" value="/scan1"/>
+	<param name="laserscan_topics" value ="/scan_raw" />
+	<param name="angle_min" value="-3.14"/>
+	<param name="angle_max" value="-1.57"/>
+	<param name="angle_increment" value="0.0058"/>
+	<param name="scan_time" value="0.0333333"/>
+	<param name="range_min" value="0.30"/>
+	<param name="range_max" value="50.0"/>
+  </node>
+
+ <node pkg="ira_laser_tools" name="laserscan_multi_merger2" type="laserscan_multi_merger" output="screen">
+	<param name="destination_frame" value="laser"/>
+	<param name="cloud_destination_topic" value="/pointcloud2"/>
+	<param name="scan_destination_topic" value="/scan2"/>
+	<param name="laserscan_topics" value ="/scan_raw" />
+	<param name="angle_min" value="1.57"/>
+	<param name="angle_max" value="3.14"/>
+	<param name="angle_increment" value="0.0058"/>
+	<param name="scan_time" value="0.0333333"/>
+	<param name="range_min" value="0.30"/>
+	<param name="range_max" value="50.0"/>
+  </node>
+
+  <node pkg="ira_laser_tools" name="laserscan_multi_merger3" type="laserscan_multi_merger" output="screen">
+	<param name="destination_frame" value="laser"/>
+	<param name="cloud_destination_topic" value="/pointcloud_merge"/>
+	<param name="scan_destination_topic" value="/scan"/>
+	<param name="laserscan_topics" value ="/scan1 /scan2" />
+	<param name="angle_min" value="-3.14"/>
+	<param name="angle_max" value="3.14"/>
+	<param name="angle_increment" value="0.0058"/>
+	<param name="scan_time" value="0.0333333"/>
+	<param name="range_min" value="0.30"/>
+	<param name="range_max" value="50.0"/>
+  </node>
+
+
+
   
   <!-- outdoor -->
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
@@ -37,6 +82,8 @@
       <rosparam file="$(find cartgrapher_navigation)/param/dwa_local_planner_params.yaml" command="load" />
       <rosparam file="$(find cartgrapher_navigation)/param/move_base_params.yaml" command="load"/>
   </node>
+
+
   
   <!-- Start RViz with custom view -->
   <node pkg="rviz" type="rviz" name="show_rviz" args="-d $(find cartgrapher_navigation)/rviz/navigation.rviz"/>    

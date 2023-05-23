@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/>
+  <!-- <node pkg="msd_exhibition" type="to_esp.py" name="to_esp" output="screen"/> -->
 
   <!-- Load robot description and start state publisher-->
   <!--<param name="robot_description" textfile="$(find cartgrapher_navigation)/urdf/robot_model.urdf" />-->
