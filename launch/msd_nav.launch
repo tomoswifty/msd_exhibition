@@ -24,7 +24,7 @@
 	<param name="scan_destination_topic" value="/scan1"/>
 	<param name="laserscan_topics" value ="/scan_raw" />
 	<param name="angle_min" value="-3.14"/>
-	<param name="angle_max" value="-1.57"/>
+	<param name="angle_max" value="-2.84"/>
 	<param name="angle_increment" value="0.0058"/>
 	<param name="scan_time" value="0.0333333"/>
 	<param name="range_min" value="0.30"/>
@@ -36,8 +36,8 @@
 	<param name="cloud_destination_topic" value="/pointcloud2"/>
 	<param name="scan_destination_topic" value="/scan2"/>
 	<param name="laserscan_topics" value ="/scan_raw" />
-	<param name="angle_min" value="1.57"/>
-	<param name="angle_max" value="3.14"/>
+	<param name="angle_min" value="-1.4"/>
+	<param name="angle_max" value="1.4"/>
 	<param name="angle_increment" value="0.0058"/>
 	<param name="scan_time" value="0.0333333"/>
 	<param name="range_min" value="0.30"/>
@@ -46,9 +46,22 @@
 
   <node pkg="ira_laser_tools" name="laserscan_multi_merger3" type="laserscan_multi_merger" output="screen">
 	<param name="destination_frame" value="laser"/>
+	<param name="cloud_destination_topic" value="/pointcloud3"/>
+	<param name="scan_destination_topic" value="/scan3"/>
+	<param name="laserscan_topics" value ="/scan_raw" />
+	<param name="angle_min" value="1.57"/>
+	<param name="angle_max" value="3.14"/>
+	<param name="angle_increment" value="0.0058"/>
+	<param name="scan_time" value="0.0333333"/>
+	<param name="range_min" value="0.30"/>
+	<param name="range_max" value="50.0"/>
+  </node>
+
+  <node pkg="ira_laser_tools" name="laserscan_multi_merger4" type="laserscan_multi_merger" output="screen">
+	<param name="destination_frame" value="laser"/>
 	<param name="cloud_destination_topic" value="/pointcloud_merge"/>
 	<param name="scan_destination_topic" value="/scan"/>
-	<param name="laserscan_topics" value ="/scan1 /scan2" />
+	<param name="laserscan_topics" value =" /scan2" />
 	<param name="angle_min" value="-3.14"/>
 	<param name="angle_max" value="3.14"/>
 	<param name="angle_increment" value="0.0058"/>

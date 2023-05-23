@@ -18,6 +18,9 @@ sudo chmodv +x install_ros_melodic.sh
 ./install_ros_melodic.sh
 cd ~/catkin_ws/src/msd_exhibition/install_requires
 ./depc.sh
+
+cd ~/catkin_ws/src/msd_exhibition/scripts/
+sudo chmod +x to_esp.py 
 ```
 
 3. install vnc
